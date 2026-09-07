@@ -129,25 +129,11 @@ if (sello && envelope) {
         // Ir a la invitación
         setTimeout(() => {
 
-    const parametros =
-        new URLSearchParams(window.location.search);
+            window.location.href = "invitacion.html";
 
-    const idInvitado =
-        parametros.get("id");
+        }, 1700);
 
-    if (idInvitado) {
-
-        window.location.href =
-            `invitacion.html?id=${encodeURIComponent(idInvitado)}`;
-
-    } else {
-
-        window.location.href =
-            "invitacion.html";
-
-    }
-
-}, 1700);
+    });
 
 }
 
