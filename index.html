@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Ofelia & José Luis</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+          <audio id="musicaBoda" loop>
+    <source src="music/boda.mp3" type="audio/mpeg">
+</audio>
+<button id="botonMusica" class="boton-musica" aria-label="Silenciar música">
+    🔊
+</button>
+
+
+    <main class="opening">
+    <video
+    class="video-fondo"
+    autoplay
+    muted
+    loop
+    playsinline
+>
+    <source src="videos/mar.mp4" type="video/mp4">
+</video>
+  
+
+    <img 
+        src="images/eucalyptus-top-left.png" 
+        alt="" 
+        class="eucalyptus eucalyptus-top-left"
+    >
+
+        <img 
+    src="images/botanical-envelope.png" 
+    alt="" 
+    class="botanical-envelope"
+>
+
+  <div class="opening-content">
+
+    <p class="opening-titulo">
+        NUESTRA BODA
+    </p>
+
+    <img 
+        src="images/nombres-novios.png" 
+        alt="Ofelia & José Luis" 
+        class="opening-nombres"
+    >
+
+    <p class="opening-nombre" id="nombre">
+        Hola, Nombre
+    </p>
+
+    <p class="opening-abrir">
+        HAZ CLIC EN LA INVITACIÓN
+    </p>
+
+</div>
+<div class="envelope" id="envelope">
+    <div class="envelope-flap"></div>
+    <div class="envelope-body"></div>
+
+    <div class="envelope-fold-left"></div>
+    <div class="envelope-fold-right"></div>
+
+    <img 
+        src="images/sello-azul.png" 
+        alt="" 
+        class="envelope-seal"
+    >
+</div>
+</main>
+<section class="invitation" id="invitation">
+
+    <div class="hero-invitacion">
+
+    <img 
+        src="images/foto-portada.png" 
+        alt="Ofelia y José Luis"
+        class="hero-foto"
+    >
+     <img 
+        src="images/monograma.png" 
+        alt="O J"
+        class="hero-monograma"
+    >
+
+    <p class="hero-frase">
+    NUESTRO PARA SIEMPRE<br>
+    COMIENZA AQUÍ
+</p>
+        
+<img 
+    src="images/nombres-novios-blanco.png"
+    alt="Ofelia y José Luis"
+    class="hero-nombres"
+>
+       
+<p class="hero-fecha">
+    14 NOV 2026
+</p>
+<p class="hero-lugar">
+    LA PAZ, BCS
+</p>
+<img 
+    src="images/hojas.png"
+    alt=""
+    class="hero-hojas"
+>
+</div>
+
+</section>
+
+
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

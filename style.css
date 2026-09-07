@@ -1,0 +1,1153 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+
+    /* =========================
+       PALETA DE COLORES
+       ========================= */
+
+    --color-azul: #6f8790;
+
+    --color-azul-oscuro: #34434b;
+
+    --color-verde: #7f9084;
+
+    --color-verde-suave: #aab7ad;
+
+    --color-marfil: #f4f2ec;
+
+    --color-crema: #f8f5ed;
+
+    --color-crema-oscuro: #eee9df;
+
+    --color-blanco: #ffffff;
+
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: var(--color-marfil);
+    color: var(--color-azul-oscuro);
+    font-family: "Cormorant Garamond", serif;
+}
+
+.opening {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255, 255, 255, 0.65),
+            transparent 55%
+        ),
+        var(--color-marfil);
+}
+
+.opening-content {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px 260px;
+}
+
+.opening-titulo {
+    margin: 0 0 18px;
+
+    color: var(--color-azul);
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-align: center;
+}
+.opening-nombres {
+    display: block;
+    width: min(520px, 100vw);
+    height: auto;
+    margin: 20px ;
+}
+.opening-nombre {
+    margin: 28px auto 0;
+
+    color: var(--color-azul);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    font-weight: 500;
+
+    line-height: 1.2;
+    text-align: center;
+}
+
+.eucalyptus {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.eucalyptus-top-left {
+    top: -20px;
+    left: -20px;
+    width: min(45vw, 560px);
+    height: auto;
+}
+
+.eucalyptus-bottom-right {
+    right: -20px;
+    bottom: -20px;
+    width: min(48vw, 600px);
+    height: auto;
+}
+
+.opening-intro {
+    margin: 24px auto 0;
+    max-width: 500px;
+    font-family: "Cormorant Garamond", serif;
+
+    color: #5d6b70;
+
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.8;
+
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+.opening-pases {
+    margin: 24px auto 0;
+
+    color: var(--color-azul-oscuro);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+
+    line-height: 1.55;
+    letter-spacing: 0.18em;
+
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.opening-pases strong {
+    color: var(--color-azul-oscuro);
+    font-weight: 600;
+}
+
+.opening-abrir {
+    
+    color: var(--color-azul);;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+    font-weight: 500;
+
+    letter-spacing: 0.18em;
+
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+
+    .eucalyptus-top-left {
+        top: -10px;
+        left: -10px;
+        width: 70vw;
+    }
+
+    .eucalyptus-bottom-right {
+    right: -10px;
+    bottom: -10px;
+    width: 70vw;
+    }
+
+    .opening-nombres {
+    transform: translateY(-25px);
+    }
+
+    .envelope {
+        bottom: 15%;
+    }
+    
+
+
+
+}
+
+
+.envelope {
+    position: absolute;
+    z-index: 3;
+
+    left: 50%;
+    bottom: 8%;
+
+    width: min(420px, 72vw);
+    aspect-ratio: 1.55 / 1;
+
+    transform: translateX(-50%);
+
+    background: var(--color-crema);
+
+    border: 1px solid rgba(120, 130, 130, 0.25);
+
+    box-shadow:
+        0 18px 35px rgba(52, 67, 75, 0.12),
+        0 4px 10px rgba(52, 67, 75, 0.08);
+
+    overflow: hidden;
+
+    perspective: 1000px;
+}
+
+.envelope-body {
+    position: absolute;
+    inset: 0;
+
+    background: var(--color-crema);
+}
+
+.envelope-flap {
+    position: absolute;
+    z-index: 2;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 55%;
+
+    background: var(--color-crema-oscuro);
+
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+    border-bottom: 1px solid rgba(120, 130, 130, 0.2);
+
+    transform-origin: top center;
+
+    transition: transform 1s ease;
+
+    backface-visibility: hidden;
+}
+
+.envelope-fold-left,
+.envelope-fold-right {
+    position: absolute;
+    z-index: 1;
+
+    top: 0;
+    bottom: 0;
+
+    width: 50%;
+
+    background: #f2eee5;
+}
+
+.envelope-fold-left {
+    left: 0;
+
+    clip-path: polygon(
+        0 0,
+        100% 50%,
+        0 100%
+    );
+}
+
+.envelope-fold-right {
+    right: 0;
+
+    clip-path: polygon(
+        100% 0,
+        0 50%,
+        100% 100%
+    );
+}
+
+.envelope-seal {
+    position: absolute;
+    z-index: 4;
+
+    top: 50%;
+    left: 50%;
+
+    width: 82px;
+    height: 82px;
+
+    object-fit: contain;
+
+    transform: translate(-50%, -50%);
+
+    filter: drop-shadow(0 3px 4px rgba(52, 67, 75, 0.18));
+}
+
+.envelope-seal {
+    position: absolute;
+    z-index: 4;
+
+    top: 50%;
+    left: 50%;
+
+    width: 82px;
+    height: 82px;
+
+    object-fit: contain;
+
+    transform: translate(-50%, -50%);
+
+    filter: drop-shadow(0 3px 4px rgba(52, 67, 75, 0.18));
+}
+
+.envelope-seal {
+    cursor: pointer;
+    transition:
+        transform 0.8s ease,
+        opacity 0.8s ease;
+}
+
+.envelope-seal.sello-abierto {
+    transform: translate(-50%, -120%) rotate(-12deg);
+    opacity: 0;
+}
+
+.envelope.sobre-abierto .envelope-flap {
+    transform: rotateX(-170deg);
+}
+
+.envelope.sobre-zoom {
+    animation: pequenoZoom 0.45s ease-in-out;
+}
+
+@keyframes pequenoZoom {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    45% {
+        transform: translateX(-50%) scale(0.94);
+    }
+
+    75% {
+        transform: translateX(-50%) scale(1.03);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+.invitation {
+    display: none;
+
+    min-height: 100vh;
+    width: 100%;
+
+    background: var(--color-marfil);
+
+    position: relative;
+}
+
+.invitation-content {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+.invitation-small {
+    margin: 0 0 20px;
+
+    color: var(--color-azul);
+
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.invitation h2 {
+    margin: 0;
+
+    color: var(--color-azul-oscuro);
+
+    font-family: Georgia, serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+}
+
+.invitation-date {
+    margin: 25px 0 0;
+
+    color: var(--color-azul);
+
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+}
+
+.botanical-envelope {
+    position: absolute;
+    z-index: 2;
+
+    left: 50%;
+    bottom: 15%;
+
+    width: min(760px, 100vw);
+    height: auto;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+
+    .envelope {
+        bottom: 20%;
+    }
+
+}
+
+/* Animación de entrada de la portada */
+
+@keyframes aparecerPortada {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.opening {
+    animation: aparecerPortada 1.2s ease-out both;
+}
+
+
+.boton-musica {
+    position: fixed;
+    z-index: 20;
+
+    top: 20px;
+    right: 20px;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(111, 135, 144, 0.35);
+    border-radius: 50%;
+
+    background: rgba(248, 245, 237, 0.85);
+
+    color: var(--color-azul);
+
+    font-size: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 10px rgba(52, 67, 75, 0.08);
+
+    backdrop-filter: blur(4px);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.boton-musica:hover {
+    transform: scale(1.05);
+}
+
+.boton-musica:active {
+    transform: scale(0.95);
+}
+
+.video-fondo {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    filter: brightness(1.25);
+}
+
+.opening::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background: rgba(245, 242, 235, 0.85);
+
+    pointer-events: none;
+}
+
+
+
+.hero-invitacion {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;   
+
+    overflow: visible;
+    z-index: 2;
+}
+.hero-invitacion::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2%;
+
+    width: 100%;
+    height: 25%;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(245, 242, 235, 0) 0%,
+        rgba(245, 242, 235, 0.35) 35%,
+        var(--color-marfil) 100%
+    );
+
+    z-index: 3;
+    pointer-events: none;
+}
+
+.hero-hojas {
+    position: absolute;
+    left: -5%;
+    bottom: -2%;
+    
+    width: 38%;
+    height: auto;
+
+    z-index: 10;
+    pointer-events: none;
+}
+
+.hero-invitacion::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(52, 67, 75, 0.18);
+
+    pointer-events: none;
+}
+
+.hero-foto {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+
+    display: block;
+}
+
+.hero-monograma {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: auto;
+    z-index: 2;
+}
+
+.hero-frase {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    line-height: 1.8;
+
+    color: var(--color-blanco);
+
+    z-index: 2;
+}
+
+.hero-nombres {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+
+    display: block;
+    margin: 0;
+
+    z-index: 2;
+}
+
+.hero-fecha {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    text-align: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 3px;
+
+    color: var(--color-blanco);
+
+    margin: 0;
+    z-index: 2;
+}
+
+.hero-lugar {
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    text-align: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3px;
+
+    color: var(--color-blanco);
+
+    margin: 0;
+    z-index: 2;
+}
+
+.seccion-padres {
+    position: relative;
+    width: 100%;
+    background: var(--color-marfil);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px 40px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.padres-contenido {
+    width: 100%;
+    max-width: 600px;
+
+    text-align: center;
+}
+
+.padres-titulo {
+    margin: 0 0 55px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    line-height: 1.5;
+    font-weight: 500;
+
+    color: var(--color-azul-oscuro);
+}
+
+.padres-bloque {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    line-height: 1.4;
+
+    color: var(--color-azul-oscuro);
+}
+
+.padres-bloque p {
+    margin: 10px 0;
+}
+
+.padres-bloque span {
+    display: block;
+    margin: 4px 0;
+
+    font-size: 18px;
+}
+
+.padres-separador {
+    width: 45px;
+    height: 1px;
+
+    margin: 35px auto;
+
+    background: var(--color-verde-suave);
+}
+
+/* =========================================
+   SECCIÓN TENEMOS EL HONOR
+   ========================================= */
+
+.seccion-honor {
+    position: relative;
+    width: 100%;
+    
+    background: var(--color-marfil);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 25px;
+
+    box-sizing: border-box;
+
+    z-index: 1;
+}
+
+.honor-contenido {
+    width: 100%;
+    max-width: 600px;
+
+    text-align: center;
+}
+
+.honor-separador {
+    width: 45px;
+    height: 1px;
+
+    margin: 0 auto 45px;
+
+    background: var(--color-verde-suave);
+}
+
+.honor-texto {
+    margin: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 3px;
+    line-height: 2;
+
+    color: var(--color-azul);
+
+    text-align: center;
+}
+
+
+/* =========================================
+   SECCIÓN PAISAJE
+   ========================================= */
+
+.seccion-paisaje {
+    position: relative;
+
+    width: 100%;  
+
+    overflow: hidden;
+
+    background: var(--color-marfil);
+}
+
+.paisaje-foto {
+    width: 100%;
+    height: 50%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+.paisaje-degradado { 
+    position: absolute; 
+    left: 0; 
+    top: 15%; 
+    width: 100%; 
+    height: 35%; 
+
+    background: linear-gradient( 
+        to bottom, 
+        rgba(245, 242, 235, 0) 0%, 
+        rgba(245, 242, 235, 0.25) 40%, 
+        var(--color-marfil) 100% 
+    ); 
+ 
+    pointer-events: none; 
+}
+/* =========================================
+   SAVE OUR DATE
+========================================= */
+
+.seccion-save-date {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    background: var(--color-marfil);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.save-contenido {
+    width: 100%;
+    max-width: 620px;
+    
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+/* SAVE OUR DATE */
+
+.save-titulo {
+    margin: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 5px;
+
+    color: var(--color-azul);
+}
+
+
+/* línea */
+
+.save-linea {
+    width: 50px;
+    height: 1px;
+    margin: 25px auto 22px;
+    background: var(--color-azul);
+}
+
+
+/* NOVIEMBRE */
+
+.save-mes {
+    margin: 0 0 8px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 5px;
+
+    color: var(--color-azul);
+}
+
+
+/* FECHA */
+
+.save-fecha {
+    margin: 0 0 55px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 65px;
+    font-weight: 500;
+    line-height: 1;
+
+    color: var(--color-azul);
+}
+
+
+/* =========================================
+   CALENDARIO
+========================================= */
+
+.save-calendario {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    margin-bottom: 24px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-weight: 500;
+
+    color: var(--color-azul);
+}
+
+.dias-semana span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.dias-mes {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    row-gap: 24px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+
+    color: var(--color-azul);
+}
+
+.dias-mes > span {
+    min-height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================================
+   CORAZÓN DEL DÍA 14
+========================================= */
+
+.dia-corazon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 38px;
+}
+
+.corazon {
+    position: relative;
+
+    width: 46px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--color-azul);
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+
+    color: var(--color-blanco);
+
+    clip-path: polygon(
+        50% 92%,
+        8% 52%,
+        2% 35%,
+        5% 18%,
+        16% 6%,
+        30% 3%,
+        41% 8%,
+        50% 20%,
+        59% 8%,
+        70% 3%,
+        84% 6%,
+        95% 18%,
+        98% 35%,
+        92% 52%
+    );
+}
+/* =========================================
+   PARTE INFERIOR
+========================================= */
+
+.save-linea-inferior {
+    width: 50px;
+    height: 1px;
+
+    margin: 60px auto 25px;
+
+    background: var(--color-azul);
+}
+
+.save-lugar {
+    margin: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 5px;
+
+    color: var(--color-azul);
+}
+
+.save-frase {
+    margin: 10px 0 0;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+
+    color: var(--color-azul);
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .save-contenido {
+        padding: 20px 18px 25px;
+    }
+
+    .save-titulo {
+        font-size: 15px;
+        letter-spacing: 4px;
+    }
+
+    .save-mes {
+        font-size: 27px;
+    }
+
+    .save-fecha {
+        font-size: 58px;
+        margin-bottom: 50px;
+    }
+
+    .dias-semana {
+        font-size: 18px;
+    }
+
+    .dias-mes {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    row-gap: 22px;
+}
+
+    .save-linea-inferior {
+        margin-top: 50px;
+    }
+
+    .save-frase {
+        font-size: 19px;
+    }
+
+    .corazon {
+        width: 44px;
+        height: 40px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+    }
+}
+
+/* =========================================
+   AJUSTE DE ESPACIOS ENTRE SECCIONES
+========================================= */
+
+/* Sección del texto de invitación */
+.seccion-honor {
+    min-height: auto;
+    padding: 5px 25px 30px;
+}
+
+
+/* Sección de la fotografía */
+.seccion-paisaje {
+    height: 42vh;
+    
+}
+
+
+/* La foto permanece pequeña */
+.paisaje-foto {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+
+/* Degradado pegado a la parte inferior de la foto */
+.paisaje-degradado {
+    top: 37%;
+    bottom: auto;
+    height: 35%;
+}
+
+
+/* SAVE OUR DATE */
+.seccion-save-date {
+    min-height: auto;
+}
+
+.save-contenido {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+/* =========================================
+   ANIMACIÓN DE APARICIÓN DE SECCIONES
+========================================= */
+
+.seccion-animada {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.seccion-animada.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
